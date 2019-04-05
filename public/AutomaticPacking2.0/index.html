@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html ng-app="IndexApp" ng-controller="IndexCtrl" class="demo-4">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>app打包</title>
+
+		<!-- BOOTSTRAP STYLES-->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<!--CUSTOM BASIC STYLES-->
+		<link href="assets/css/basic.css" rel="stylesheet" />
+		<!--CUSTOM MAIN STYLES-->
+		<link href="assets/css/custom.css" rel="stylesheet" />
+		<!-- GOOGLE FONTS-->
+		<link rel="stylesheet" rev="stylesheet" href="css/styleCSS.css" type="text/css">
+
+		<style>
+			#loading {
+				background-color: darkgray;
+				filter:alpha(opacity:30); 
+				opacity:0.7;
+				height: 100%;
+				width: 100%;
+				position: fixed;
+				z-index: 1;
+				margin-top: 0px;
+				top: 0px;
+			}
+			
+			#loading-center {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			#loading-center-absolute {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				height: 150px;
+				width: 150px;
+				margin-top: -75px;
+				margin-left: -75px;
+				-moz-border-radius: 50% 50% 50% 50%;
+				-webkit-border-radius: 50% 50% 50% 50%;
+				border-radius: 50% 50% 50% 50%;
+			}
+			
+			.object {
+				width: 20px;
+				height: 20px;
+				background-color: #FFF;
+				position: absolute;
+				-moz-border-radius: 50% 50% 50% 50%;
+				-webkit-border-radius: 50% 50% 50% 50%;
+				border-radius: 50% 50% 50% 50%;
+				-webkit-animation: animate 0.8s infinite;
+				animation: animate 0.8s infinite;
+			}
+			
+			#object_one {
+				top: 19px;
+				left: 19px;
+			}
+			
+			#object_two {
+				top: 0px;
+				left: 65px;
+				-webkit-animation-delay: 0.1s;
+				animation-delay: 0.1s;
+			}
+			
+			#object_three {
+				top: 19px;
+				left: 111px;
+				-webkit-animation-delay: 0.2s;
+				animation-delay: 0.2s;
+			}
+			
+			#object_four {
+				top: 65px;
+				left: 130px;
+				-webkit-animation-delay: 0.3s;
+				animation-delay: 0.3s;
+			}
+			
+			#object_five {
+				top: 111px;
+				left: 111px;
+				-webkit-animation-delay: 0.4s;
+				animation-delay: 0.4s;
+			}
+			
+			#object_six {
+				top: 130px;
+				left: 65px;
+				-webkit-animation-delay: 0.5s;
+				animation-delay: 0.5s;
+			}
+			
+			#object_seven {
+				top: 111px;
+				left: 19px;
+				-webkit-animation-delay: 0.6s;
+				animation-delay: 0.6s;
+			}
+			
+			#object_eight {
+				top: 65px;
+				left: 0px;
+				-webkit-animation-delay: 0.7s;
+				animation-delay: 0.7s;
+			}
+			
+			@-webkit-keyframes animate {
+				25% {
+					-ms-transform: scale(1.5);
+					-webkit-transform: scale(1.5);
+					transform: scale(1.5);
+				}
+				75% {
+					-ms-transform: scale(0);
+					-webkit-transform: scale(0);
+					transform: scale(0);
+				}
+			}
+			
+			@keyframes animate {
+				50% {
+					-ms-transform: scale(1.5, 1.5);
+					-webkit-transform: scale(1.5, 1.5);
+					transform: scale(1.5, 1.5);
+				}
+				100% {
+					-ms-transform: scale(1, 1);
+					-webkit-transform: scale(1, 1);
+					transform: scale(1, 1);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="loading" style = "display: none;">
+			<div id="loading-center">
+				<div id="loading-center-absolute">
+					<div class="object" id="object_one"></div>
+					<div class="object" id="object_two"></div>
+					<div class="object" id="object_three"></div>
+					<div class="object" id="object_four"></div>
+					<div class="object" id="object_five"></div>
+					<div class="object" id="object_six"></div>
+					<div class="object" id="object_seven"></div>
+					<div class="object" id="object_eight"></div>
+
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="col-md-12 col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Basic Tabs
+				</div>
+				<div class="panel-body">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#home" data-toggle="tab">Home</a>
+						</li>
+						<li class="">
+							<a href="#profile" data-toggle="tab">Profile</a>
+						</li>
+					</ul>
+
+					<div ng-include="'view/upDataApp.html'" ng-show="appDetail"></div>
+					<div class="tab-content" style="margin-bottom: 0px;" ng-show="appindex">
+						<div class="tab-pane fade active in" id="home" style="margin-top: 30px;">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h2>app信息管理</h2>
+								</div>
+								<div class="panel-body">
+									<!--<button id="modal-267843" href="#modal-container-267843" role="button" class="btn-app btn_a"  ng-click="btnAddAppHistory()">打包历史</button>-->
+									<button id="modal-267844" href="#modal-container-267844" role="button" class="btn-group btn_a" data-toggle="modal" ng-click="btnAddGroup()">添加group信息</button>
+								</div>
+								<hr />
+								<div ng-include="'view/appList.html'"></div>
+								<div style="margin-top: 10px;">
+									<!--
+                                    	作者：offline
+                                    	时间：2018-09-30
+                                    	描述：新增分页
+                                    -->
+								<button ng-click="gethistoryBack()"  class="btn btn-warning" ng-show="pageno==0?false:true" style="margin-left: 15px;">
+										上一页
+									</button>
+								<button ng-click="gethistoryNext()"  class="btn btn-warning" style="float: right;">
+									下一页
+								</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane fade" id="profile">
+							<h4>Profile Tab</h4>
+						</div>
+								
+						<div ng-include="'view/addApp.html'"></div>
+						<div ng-include="'view/addGroup.html'"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>-->
+		<!--<script src="assets/js/angular/angular.js"></script>-->
+		<script src="assets/js/angular/angular.min.js"></script>
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<!-- BOOTSTRAP SCRIPTS -->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ui-bootstrap-tpls-0.12.1.min.js"></script>
+		<!-- METISMENU SCRIPTS -->
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<!-- CUSTOM SCRIPTS -->
+		<script src="assets/js/custom.js"></script>
+		<script src="js/modernizr.custom.63321.js"></script>
+		<script src="js/comlist.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/demoController6.js"></script>
+	</body>
+
+</html>

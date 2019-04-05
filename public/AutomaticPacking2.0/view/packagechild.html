@@ -1,0 +1,66 @@
+<div class="" id="modal-container-267850" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<!--<div id="modal-container-267850" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+
+	<div class="modal-dialog">
+		<!--class="modal-dialog"-->
+		<!-- class="modal-content"-->
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
+			<!--<h3 class="modal-title" ng-bind="(btnSaveType == 'add'?'添加':'修改') + '组信息'">修改app信息</h3>-->
+			<!--<h3 class="modal-title">上传证书</h3>-->
+		</div>
+		<div class="modal-body">
+			<form role="form">
+				<div ng-repeat="item in gitGroupList">
+					<div class="form-title" ng-bind="item.groupName"></div>
+					<div class="form-group" ng-repeat="it in item.groupInfo">
+						<label><span ng-show="it.required=='yes'"  class="mustInput">*</span><span ng-bind="it.nameCN"></span></label>
+						<div class="weui-cell__ft">
+							<div ng-if="it.type=='input'">
+								<label ng-bind="it.subInfo.showValue" class="form-control required"></label>
+								<input type="text" ng-model="$parent.conf[it.name]" placeholder="{{'请输入'+it.nameCN}}" class="form-control required" aria-required="true" />
+							</div>
+							<div ng-if="it.type=='select'">
+								<label ng-bind="it.subInfo.showValue" class="form-control"></label>
+								<select ng-model="$parent.conf[it.name]" ng-options="i.code as i.name for i in it.subInfo.selectArr" class="form-control required"></select>
+							</div>
+							<div ng-if="it.type=='label' && it.subInfo.hide !='1'">
+								<label ng-bind="it.subInfo.showValue"></label>
+							</div>
+							<div ng-if="it.type=='image' || it.type=='file'">
+								<img ng-src="{{it.subInfo.showValue}}" width="{{it.subInfo.sizeWidth}}" height="{{it.subInfo.sizeHeight}}" />
+								<div>
+									<input type="file" name="upload" id="{{it.name}}" class="file_img" ng-click="fileClick(it)" />
+									<button class="btns" ng-click="filesSave(it.name,it.type)">上传文件</button>
+								</div>
+							</div>
+							<div ng-if="it.type=='checkbox'">
+								<label ng-bind="it.subInfo.showValue"></label>
+								<input type="checkbox" />
+							</div>
+							<div ng-if="it.type=='checkbox' && it.subInfo.isselected">
+								<div ng-repeat="sub in it.subInfo.info">
+									<div ng-if="sub.type=='input'">
+										<label ng-bind="sub.subInfo.showValue"></label>
+										<input type="text" class="weui-input text-right" ng-model="$parent.conf.checkbox[sub.name]" />
+									</div>
+									<div ng-if="sub.type=='label' && sub.subInfo.hide !='1'">
+										<label ng-bind="sub.subInfo.showValue"></label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<!--class="modal-footer"-->
+			<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" ng-click="close()">	关	闭</button>
+			<button ng-click="btnSaveAppParent()" class="btn btn-primary">保	存</button>
+		</div>
+
+	</div>
+</div>
+
+<!--	</body>-->

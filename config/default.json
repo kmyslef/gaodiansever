@@ -1,0 +1,36 @@
+{
+  "name": "atuopack",
+  "description": "atuopack",
+  "host": "127.0.0.1",
+  "port": 7001,
+  "mysql": {
+    "db": "auto_pack",
+    "host": "127.0.0.1",
+    "port": 3306,
+    "username": "root",
+    "password": "root"
+  },
+  "mongodb": {
+    "uri": "",
+    "db": "hello",
+    "host": "127.0.0.1",
+    "port": 27017,
+    "username": "",
+    "password": "",
+    "option": {}
+  },
+  "redis": {
+    "db": 0,
+    "host": "192.168.163.202",
+    "port": 6379,
+    "password": ""
+  },
+  "mail": {
+    "host": "smtp.neusoft.com",
+    "secure": false,
+    "port": 587,
+    "user": "dik",
+    "pass": "!QAZ2wsx",
+    "sendfrom": "dik@neusoft.com"
+  }
+}

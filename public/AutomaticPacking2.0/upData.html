@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+
+		<!-- BOOTSTRAP STYLES-->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<!--CUSTOM BASIC STYLES-->
+		<link href="assets/css/basic.css" rel="stylesheet" />
+		<!--CUSTOM MAIN STYLES-->
+		<link href="assets/css/custom.css" rel="stylesheet" />
+		<!-- GOOGLE FONTS-->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" rev="stylesheet" href="css/styleCSS.css" type="text/css">
+
+		<script src="assets/js/angular/angular.js"></script>
+		<script src="assets/js/angular/angular.min.js"></script>
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<!-- BOOTSTRAP SCRIPTS -->
+		<script src="assets/js/bootstrap.js"></script>
+		<!-- METISMENU SCRIPTS -->
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<!-- CUSTOM SCRIPTS -->
+		<script src="assets/js/custom.js"></script>
+		<script src="js/upData.js"></script>
+		
+		<style>/*f0c600*/
+			#loading {
+				background-color: darkgray;
+				filter:alpha(opacity:30); 
+				opacity:0.7;
+				height: 100%;
+				width: 100%;
+				position: fixed;
+				z-index: 1;
+				margin-top: 0px;
+				top: 0px;
+			}
+			
+			#loading-center {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			#loading-center-absolute {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				height: 150px;
+				width: 150px;
+				margin-top: -75px;
+				margin-left: -75px;
+				-moz-border-radius: 50% 50% 50% 50%;
+				-webkit-border-radius: 50% 50% 50% 50%;
+				border-radius: 50% 50% 50% 50%;
+			}
+			
+			.object {
+				width: 20px;
+				height: 20px;
+				background-color: #FFF;
+				position: absolute;
+				-moz-border-radius: 50% 50% 50% 50%;
+				-webkit-border-radius: 50% 50% 50% 50%;
+				border-radius: 50% 50% 50% 50%;
+				-webkit-animation: animate 0.8s infinite;
+				animation: animate 0.8s infinite;
+			}
+			
+			#object_one {
+				top: 19px;
+				left: 19px;
+			}
+			
+			#object_two {
+				top: 0px;
+				left: 65px;
+				-webkit-animation-delay: 0.1s;
+				animation-delay: 0.1s;
+			}
+			
+			#object_three {
+				top: 19px;
+				left: 111px;
+				-webkit-animation-delay: 0.2s;
+				animation-delay: 0.2s;
+			}
+			
+			#object_four {
+				top: 65px;
+				left: 130px;
+				-webkit-animation-delay: 0.3s;
+				animation-delay: 0.3s;
+			}
+			
+			#object_five {
+				top: 111px;
+				left: 111px;
+				-webkit-animation-delay: 0.4s;
+				animation-delay: 0.4s;
+			}
+			
+			#object_six {
+				top: 130px;
+				left: 65px;
+				-webkit-animation-delay: 0.5s;
+				animation-delay: 0.5s;
+			}
+			
+			#object_seven {
+				top: 111px;
+				left: 19px;
+				-webkit-animation-delay: 0.6s;
+				animation-delay: 0.6s;
+			}
+			
+			#object_eight {
+				top: 65px;
+				left: 0px;
+				-webkit-animation-delay: 0.7s;
+				animation-delay: 0.7s;
+			}
+			
+			@-webkit-keyframes animate {
+				25% {
+					-ms-transform: scale(1.5);
+					-webkit-transform: scale(1.5);
+					transform: scale(1.5);
+				}
+				75% {
+					-ms-transform: scale(0);
+					-webkit-transform: scale(0);
+					transform: scale(0);
+				}
+			}
+			
+			@keyframes animate {
+				50% {
+					-ms-transform: scale(1.5, 1.5);
+					-webkit-transform: scale(1.5, 1.5);
+					transform: scale(1.5, 1.5);
+				}
+				100% {
+					-ms-transform: scale(1, 1);
+					-webkit-transform: scale(1, 1);
+					transform: scale(1, 1);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="loading" style = "display: none;">
+			<div id="loading-center">
+				<div id="loading-center-absolute">
+					<div class="object" id="object_one"></div>
+					<div class="object" id="object_two"></div>
+					<div class="object" id="object_three"></div>
+					<div class="object" id="object_four"></div>
+					<div class="object" id="object_five"></div>
+					<div class="object" id="object_six"></div>
+					<div class="object" id="object_seven"></div>
+					<div class="object" id="object_eight"></div>
+
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="col-md-12 col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Basic Tabs
+				</div>
+				<div class="panel-body">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#home" data-toggle="tab">Home</a>
+						</li>
+						<li class="">
+							<a href="#profile" data-toggle="tab">Profile</a>
+						</li>
+					</ul>
+
+					<div class="pageContent ng-scope" ng-app="appConsole" ng-controller="appupdateController">
+						<div class="list-group">
+							<div class="list-group-item">
+								<h1 class="list-group-item-heading h1">
+					app更新管理
+				</h1>
+							</div>
+							<div class="list-group-item">
+								<form class="form-inline ng-pristine ng-valid ng-submitted">
+									<div class="form-group">
+										<button ng-click="btnBack()" title="返回" class="btn btn-info">返回</button>
+										<button ng-click="btnRefreshInfo()" title="刷新信息" class="btn btn-primary">刷新信息</button>
+									</div>
+									<div class="form-group pull-right">
+										<button href="#appUpdateModal" ng-click="btnAddAppUpdateInfo()" title="添加app更新信息" role="button" data-toggle="modal" class="btn btn-success">添加app更新信息</button>
+									</div>
+
+								</form>
+							</div>
+							<div class="list-group-item">
+								<form class="form-inline ng-pristine ng-valid" style="display: inline-table;">
+									<div class="form-group" style="margin-right: 25px;">
+										<label class="form-label text-right">
+					    	app中文名：<span ng-bind="tempAppInfo.cname" style="font-weight: 100;" class="ng-binding">{{tempAppInfo.cname}}</span>
+					    </label>
+									</div>
+									<div class="form-group" style="margin-right: 25px;">
+										<label class="form-label text-right">
+					    	app英文名：<span ng-bind="tempAppInfo.name" style="font-weight: 100;" class="ng-binding">{{tempAppInfo.name}}</span>
+					    </label>
+									</div>
+									<div class="form-group" style="margin-right: 25px;">
+										<label class="form-label text-right">
+					    	系统类型：<span ng-bind="tempAppInfo.os == 'i'?'ios':'android'" style="font-weight: 100;" class="ng-binding">{{tempAppInfo.os}}</span>
+					    </label>
+									</div>
+									<div class="form-group" style="margin-right: 25px;">
+										<label class="form-label text-right">
+					    	pkgid：<span ng-bind="tempAppInfo.pkgid" style="font-weight: 100;" class="ng-binding">{{tempAppInfo.pkgid}}</span>
+					    </label>
+									</div>
+								</form>
+							</div>
+							<div class="list-group-item">
+								<table class="table table-bordered table-hover ">
+									<thead>
+										<tr class="info">
+											<th class="col-lg-1 col-sm-1 col-xs-1">版本号</th>
+											<th class="col-lg-1 col-sm-1 col-xs-1">版本名</th>
+											<th class="col-lg-2 col-sm-2 col-xs-2">更新英文名</th>
+											<th class="col-lg-2 col-sm-2 col-xs-2">更新中文名</th>
+											<!--<th class="col-lg-1 col-sm-1 col-xs-1">apk大小</th>-->
+											<th class="col-lg-3 col-sm-3 col-xs-3">apk下载路径</th>
+											<th class="col-lg-2 col-sm-2 col-xs-2">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- ngRepeat: app in appUpdateList track by $index -->
+										<tr ng-dblclick="btnEditAppUpdateInfo(app)" ng-repeat="app in appUpdateList track by $index" class="tr_height ng-scope">
+											<td ng-bind="app.vcode" class="ng-binding">6</td>
+											<td ng-bind="app.vname" class="ng-binding">1.0.0</td>
+											<td ng-bind="app.fname" class="ng-binding">demo-ihrss-2017-vc6-vn1.0.0</td>
+											<td ng-bind="app.fcname" class="ng-binding">掌上人社Demo-vc6-vn1.0.0</td>
+											<!--<td ng-bind="(app.size / (1024 * 1024)).toFixed(2) + 'MB'" class="ng-binding">37.94MB</td>-->
+											<td ng-bind="app.url" class="ng-binding">http://download.chinanorth.cloudapp.chinacloudapi.cn/demo/demo-ihrss-2017/20171201/demo-ihrss-2017-vc6-vn1.0.0.apk</td>
+											<td class="td_padding">
+												<!--<button ng-click="btnEditAppUpdateInfo(app, $index)" title="编辑信息" class="btn btn-info">
+									<i class="glyphicon glyphicon-pencil"></i>
+								</button>-->
+												<button ng-click="btnDelAppUpdateInfo(app)" title="删除信息" class="btn btn-danger">
+									<i class="glyphicon glyphicon-trash"></i>
+								</button>
+												<button ng-click="btnDownLoad(app)" title="下载" class="btn btn-success">
+									<i class="glyphicon glyphicon-download"></i>
+								</button>
+											</td>
+										</tr>
+										<!-- end ngRepeat: app in appUpdateList track by $index -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div id="appUpdateModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										<h4 class="modal-title ng-binding" ng-bind="(btnSaveType == 'add'?'添加':'修改') + 'app更新信息'">添加app更新信息</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<label><span class="mustInput">*</span>app版本号:</label>
+											<input ng-disabled="btnSaveType == 'edit'" ng-model="appUpdateInfo.vcode" placeholder="请输入app版本号..." class="form-control required ng-pristine ng-untouched ng-valid" aria-required="true" type="text">
+										</div>
+										<div class="form-group">
+											<label><span class="mustInput">*</span>app版本名:</label>
+											<input ng-disabled="btnSaveType == 'edit'" ng-model="appUpdateInfo.vname" placeholder="请输入app版本名..." class="form-control required ng-pristine ng-untouched ng-valid" aria-required="true" type="text">
+										</div>
+										<div class="form-group">
+											<label>是否强制更新:</label>
+											<input ng-disabled="!showInfo &amp;&amp; btnSaveType == 'edit'" ng-model="appUpdateInfo.force" style="width: 30px;height: 30px;display: block;" class="required ng-pristine ng-untouched ng-valid" aria-required="true" type="checkbox">
+										</div>
+										<div class="form-group">
+											<label><span class="mustInput">*</span>更新信息:</label>
+											<input ng-disabled="!showInfo &amp;&amp; btnSaveType == 'edit'" ng-model="appUpdateInfo.comment" placeholder="请输入更新信息..." class="form-control required ng-pristine ng-untouched ng-valid" aria-required="true" type="text">
+										</div>
+										<div class="form-group">
+											<label><span class="mustInput">*</span>更新版本中文名:</label>
+											<input ng-disabled="btnSaveType == 'edit'" ng-model="appUpdateInfo.fcname" placeholder="请输入更新版本中文名..." class="form-control required ng-pristine ng-untouched ng-valid" aria-required="true" type="text">
+										</div>
+										<div class="form-group">
+											<label><span class="mustInput">*</span>更新版本英文名:</label>
+											<input ng-disabled="btnSaveType == 'edit'" ng-model="appUpdateInfo.fname" placeholder="请输入更新版本英文名..." class="form-control required ng-pristine ng-untouched ng-valid" aria-required="true" type="text">
+										</div>
+										<div class="form-group">
+											<label><span class="mustInput">*</span>更新url:</label>
+											<input ng-disabled="btnSaveType == 'edit'" ng-model="appUpdateInfo.url" placeholder="请输入更新url..." class="form-control required ng-pristine ng-untouched ng-valid" aria-required="true" type="text">
+										</div>
+										<!-- ngIf: btnSaveType == 'edit' -->
+										
+										<!--<div class="form-group">
+											<label>是否回归正常版本:</label>
+											<input ng-click="btnRegression()" ng-model="appUpdateInfo.regression" style="width: 30px;height: 30px;display: block;" class="required ng-pristine ng-untouched ng-valid" aria-required="true" type="checkbox">
+										</div>-->
+										<!--<div class="form-group">
+											<label><span class="mustInput">*</span>上传apk:</label>
+											<input id="apkFile" class="form-control" onchange="angular.element(this).scope().handleFile(this.files)" type="file">
+										</div>-->
+										<!--<div class="form-group">
+							<label>app状态描述:</label>
+							<input type="text" ng-model = "appUpdateInfo.desc" placeholder="请输入app状态描述..." class="form-control required" aria-required="true">
+						</div>-->
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">	关	闭</button>
+										<button id="btnSave" data-loading-text="Loading..." autocomplete="off" ng-click="btnSaveAppUpdateInfo()" class="btn btn-primary ng-binding" ng-bind="btnSaveType == 'add'?'保	存':'修	改'">保	存</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

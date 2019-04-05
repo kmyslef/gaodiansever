@@ -1,0 +1,5 @@
+{
+    "issucess": "1",
+    "data": "[{\"groupName\": \"git相关信息\",\"groupInfo\": [{\"type\": \"input\",\"name\": \"gitpath\",\"nameCN\": \"git地址(http形式)\",\"required\": \"yes\",\"subInfo\": {\"showText\": \"默认文字\",\"checkRule\": \"正则\"}}, {\"type\": \"input\",\"name\": \"gitusername\",\"nameCN\": \"git用户名\",\"required\": \"yes\",\"subInfo\": {}}, {\"type\": \"input\",\"name\": \"gitpassword\",\"nameCN\": \"git用户密码\",\"required\": \"yes\", \"subInfo\": {}}]}, {\"groupName\": \"git文件\",\"groupInfo\": [{ \"type\": \"input\", \"name\": \"gitpath1\", \"nameCN \": \"t地址(http形式) 1\", \"required\": \"yes\", \"subInfo\": { \"showText\": \"默认文字\", \"checkRule\": \"正则\"}}, { \"type\": \"input\", \"name\": \"gitusername1\",\"nameCN \": \"git用户名1\", \"required\": \"yes\",\"subInfo\": {}}, { \"type\": \"input\", \"name\": \"gitpassword1\", \"nameCN \": \"git用户密码1\", \"required\": \"yes\", \"subInfo\": {} }] }]",
+    "msg": ""
+}

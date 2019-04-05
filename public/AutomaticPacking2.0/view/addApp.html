@@ -1,0 +1,91 @@
+<div class="modal fade" id="modal-container-267843" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<!--<h3 class="modal-title" id="myModalLabel">添加app信息</h3>-->
+				<h3 class="modal-title ng-binding" ng-bind="(btnSaveType == 'add'?'添加':'修改') + '项目信息'">修改app信息</h3>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+					<div class="form-group">
+						<label><span class="mustInput">*</span>项目名:</label><!--gl.groupname as gl.groupname for gl in groupList-->
+						<input ng-model="appParentInfo.pname" placeholder="请输入项目中文名称..." class="form-control required ng-pristine ng-valid ng-touched" aria-required="true" type="text">
+					</div>
+					<div class="form-group">
+						<label><span class="mustInput">*</span>描述:</label>
+						<input ng-model="appParentInfo.pdes" placeholder="请输入中文描述" class="form-control required ng-pristine ng-valid ng-touched" aria-required="true" type="text">
+					</div>
+					<div class="form-group">
+						<label><span class="mustInput">*</span>类型:</label>
+						<select ng-disabled="btnSaveType == 'edit'" ng-model="appParentInfo.ptype" class="form-control" ng-options="i.code as i.des for i in ptypeLists">
+							<option value="" class="" selected="selected">----------请选择 ----------</option>
+							<!--<option value="00">00</option>-->
+						</select>
+					</div>
+				</form>
+				<!--<form role="form" ng-show="twoPageShow">-->
+					<!--<div ng-include="'view/demo6.html'"></div>-->
+					<!--<div ng-repeat="item in gitGroupList">
+						<div class="form-title" ng-bind="item.groupName"></div>
+						<div class="form-group" ng-repeat="it in item.groupInfo">
+							<label>
+								<span ng-show="it.required=='yes'"  class="mustInput">*</span>
+								<input type="checkbox" ng-model="it.subInfo.isselected" ng-if="it.type=='checkbox'" ng-change="checkboxChange(it.subInfo.isselected)"/>
+								<span ng-bind="it.nameCN"></span>
+							</label>
+							<div class="weui-cell__ft">
+								<div ng-if="it.type=='input'">
+									<label ng-bind="it.subInfo.showValue" class="form-control required"></label>
+									<input type="text" ng-model="$parent.conf[it.name]" placeholder="{{'请输入'+it.nameCN}}" class="form-control required" aria-required="true"/>
+								</div>
+								<div ng-if="it.type=='select'">
+									<label ng-bind="it.subInfo.showValue" class="form-control"></label>						
+									<select ng-model="$parent.conf[it.name]" ng-options="i.code as i.name for i in it.subInfo.selectArr" class="form-control required"></select>
+								</div>
+								<div ng-if="it.type=='label' && it.subInfo.hide !='1'">
+									<label ng-bind="it.subInfo.showValue"></label>
+								</div>
+								<div ng-if="it.type=='image' || it.type=='file'">
+									<img ng-src="{{it.subInfo.showValue}}"/>
+									<div>
+										<input type="file" name="upload" id="{{it.name}}" class="file_img" ng-click="fileClick(it)"/>
+										<button class="btns" ng-click="filesSave(it.name,it.type)">上传文件</button>
+									</div>
+								</div>
+								<div ng-if="it.type=='checkbox' && it.subInfo.isselected">
+									<div ng-repeat="sub in it.subInfo.info">
+										<div ng-if="sub.type=='input'">
+											<label ng-bind="sub.subInfo.showValue"></label>
+											<input type="text" class="weui-input text-right" ng-model="$parent.conf.checkbox[sub.name]"/>
+										</div>
+										<div ng-if="sub.type=='label' && sub.subInfo.hide !='1'">
+											<label ng-bind="sub.subInfo.showValue"></label>
+										</div>
+										<div ng-if="sub.type=='select'">
+											<label ng-bind="sub.subInfo.showValue" class="form-control"></label>						
+											<select ng-model="$parent.conf[sub.name]" ng-options="i.code as i.name for i in sub.subInfo.selectArr" class="form-control required"></select>
+										</div>
+									</div>
+								</div>
+								<div ng-if="it.type=='subpage'">
+									<button class="btns" ng-click="subPageClick(it)">subpage</button>
+								</div>
+							</div>
+						</div>
+					</div>-->
+				<!--</form>-->
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">	关	闭</button>
+				<button ng-click="btnNextAppParent()" class="btn btn-primary">下一步</button>
+			</div>
+			<!--<div class="modal-footer" ng-show="twoPageShow">
+				<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">	关	闭</button>
+				<button ng-click="btnSaveAppParent()" class="btn btn-primary" ng-bind="btnSaveType == 'add'?'保	存':'修	改'">保	存</button>
+			</div>-->
+		</div>
+
+	</div>
+
+</div>

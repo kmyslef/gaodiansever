@@ -1,0 +1,127 @@
+<div class="" id="modal-container-267850" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<!--<div id="modal-container-267850" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+
+	<div class="modal-dialog">
+		<!--class="modal-dialog"-->
+		<!-- class="modal-content"-->
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
+			<!--<h3 class="modal-title" ng-bind="(btnSaveType == 'add'?'添加':'修改') + '组信息'">修改app信息</h3>-->
+			<!--<h3 class="modal-title">上传证书</h3>-->
+		</div>
+		<div class="modal-body">
+			<form role="form">
+				<div ng-repeat="item in gitGroupList">
+					<div class="form-title" ng-bind="item.groupName"></div>
+					<div class="form-group" ng-repeat="it in item.groupInfo">
+						<label>
+							<span ng-show="it.required=='yes'"  class="mustInput">*</span>
+							<input type="checkbox" ng-model="it.subInfo.isselected" ng-if="it.type=='checkbox'" ng-change="checkboxChange(gitGroupList,it.subInfo.isselected)"/>
+							<span ng-bind="it.nameCN"></span>
+						</label>
+						<div class="weui-cell__ft">
+							<div ng-if="it.type=='input'">
+								<div class="dis-flex">
+									<p class="flex1 text-left">默认显示初始值：</p>
+									<label ng-bind="it.subInfo.showValue" class="form-control required flex4"></label>
+								</div>
+								<div class="dis-flex">
+									<p class="flex1 text-left">新增/修改值</p>
+									<input type="text" ng-model="$parent.conf[it.name]" placeholder="{{'请输入'+it.nameCN}}" class="form-control required flex4" aria-required="true" />
+								</div>
+							</div>
+							<div ng-if="it.type=='select'">
+								<div class="dis-flex">
+									<p class="flex1 text-left">默认显示初始值：</p>
+									<label ng-bind="it.subInfo.showValue" class="form-control required flex4"></label>
+								</div>
+								<div class="dis-flex">
+									<p class="flex1 text-left">新增/修改值</p>
+									<select ng-model="$parent.conf[it.name]" ng-options="i.code as i.name for i in it.subInfo.selectArr" class="form-control required flex4"></select>
+								</div>
+							</div>
+							<div ng-if="it.type=='label' && it.subInfo.hide !='1'">
+								<div class="dis-flex">
+									<p class="flex1 text-left">默认显示初始值：</p>
+									<label ng-bind="it.subInfo.showValue" class="form-control required flex4"></label>
+								</div>
+							</div>
+							<div ng-if="it.type=='image' || it.type=='file'" class="dis-flex">
+								<div class="flex1">
+									<p class="text-left">默认图片：</p>
+									<img ng-src="{{it.subInfo.showValue}}" style="width: 100px;height: 100px;" />
+								</div>
+								<div class="flex1">
+									<input type="file" name="upload" id="{{it.name}}" class="file_img" ng-click="fileClick(it)" />
+									<button class="btns" ng-click="filesSave(it.name,it.type)">上传文件</button>
+								</div>
+							</div>
+							<div ng-if="it.type=='checkbox' && it.subInfo.isselected">
+								<div ng-repeat="sub in it.subInfo.info">
+									<div ng-if="sub.type=='input'">
+										<div class="dis-flex">
+											<p class="flex1 text-left">默认显示初始值</p>
+											<label ng-bind="sub.subInfo.showValue" class="flex4"></label>
+										</div>
+										<div class="dis-flex">
+											<p class="flex1 text-left">新增/修改值</p>
+											<input type="text" class="form-control required flex4" ng-model="$parent.conf.checkbox[sub.name]" />
+										</div>
+									</div>
+									<div ng-if="sub.type=='label' && sub.subInfo.hide !='1'">
+										<div class="dis-flex">
+											<p class="flex1 text-left">默认显示初始值</p>
+											<label ng-bind="sub.subInfo.showValue" class="flex4"></label>
+										</div>
+									</div>
+									<div ng-if="sub.type=='select'">
+										<div class="dis-flex">
+											<p class="flex1 text-left">默认显示初始值</p>
+											<label ng-bind="sub.subInfo.showValue" class="form-control flex4"></label>
+										</div>
+										<div class="dis-flex">
+											<p class="flex1 text-left">新增/修改值</p>
+											<select ng-model="$parent.conf[it.name][sub.name]" ng-options="i.code as i.name for i in sub.subInfo.selectArr" class="form-control required flex4"></select>
+										</div>
+									</div>
+									<div ng-if="sub.type=='subgroup'" style="border-top: 1px dotted #ddd;border-bottom: 1px solid #ddd;padding:10px 0; margin-top: 10px;">
+										<div ng-repeat="i in sub.subInfo.info" style="width: 80%;margin: 5px auto;">
+											<label ng-bind="i.nameCN"></label>
+											<div ng-if="i.type=='input'">
+												<div class="dis-flex">
+													<p class="flex1 text-left">默认显示初始值</p>
+													<label ng-bind="i.subInfo.showValue" class="form-control flex4"></label>
+												</div>
+												<div class="dis-flex">
+													<p class="flex1 text-left">新增/修改值</p>
+													<input type="text" class="form-control required flex4" ng-model="$parent.conf[it.name][sub.name][i.name]"/>
+												</div>
+											</div>
+											<div ng-if="i.type=='label'">
+												<div class="dis-flex">
+													<p class="flex1 text-left">默认显示初始值</p>
+													<label ng-bind="i.subInfo.showValue" class="form-control flex4"></label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div ng-if="it.type=='subpage'">
+								<button class="btns" ng-click="subPageClick(it)">subpage</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<!--class="modal-footer"-->
+			<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" ng-click="close()">	关	闭</button>
+			<button ng-click="btnSaveAppParent()" class="btn btn-primary" ng-show="baochunBtnShow">保	存</button>
+			<button ng-click="btnDabaso()" class="btn btn-success" ng-show="dabaoBtnShow">打	 包</button>
+		</div>
+
+	</div>
+</div>
+

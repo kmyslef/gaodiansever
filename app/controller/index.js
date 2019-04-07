@@ -1,9 +1,12 @@
 "use strict";
 
 const Router = require('koa-router')({prefix: '/api'});
+const login = require('./client/login');
 
 
 module.exports = Router
+    //登录
+    .get('/client/login', login.login);
     //获取组列表
     // .get('/group/list', group.getlist)
     // //添加组信息

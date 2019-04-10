@@ -13,7 +13,7 @@ const config = require('config');
 const BodyReceiver = require('bodyreceiver');
 const controller = require('./controller');
 const resource = require('./controller/resource');
-const mytest = require('./controller/myt');
+const sever = require('./controller/sever');
 let bodyReceiver = new BodyReceiver({
     maxBodySize: '200mb',
     maxFileSize: '200mb',
@@ -52,7 +52,7 @@ app.use(async (ctx, next) => {
 
 app.use(controller.routes());
 app.use(resource.routes());
-app.use(mytest.routes());
+app.use(sever.routes());
 
 http.createServer(app.callback()).listen(config.get('port'), '0.0.0.0', err => {
     if (err) {

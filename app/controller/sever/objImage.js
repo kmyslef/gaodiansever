@@ -11,6 +11,6 @@ exports.upimage = async ctx => {
     const uuid = uuidv1();
     await fs.ensureDir(imagesPath);
 
-    await fs.writeFile(path.join(imagesPath, ctx.request.body.files.file[0].name), ctx.request.body.files.file[0].contents);
+    await fs.writeFile(path.join(imagesPath, uuid), ctx.request.body.files.file[0].contents);
     ctx.body = {fileid: uuid};
 }

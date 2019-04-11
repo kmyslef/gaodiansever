@@ -12,9 +12,7 @@ const classify = db.define('classify', {
     updatedAt: false
 });
 
-exports.getall = async () => await user.findAll({
-
-});
+exports.getall = async () => await classify.findAll();
 
 exports.insert = async param => await classify.build({
     classifyid: param.classifyid,

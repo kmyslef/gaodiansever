@@ -16,3 +16,11 @@ exports.addClass = async ctx => {
 
     ctx.body = {"rlt": "OK"};
 }
+
+exports.listClass = async ctx => {
+
+
+    const rlt = await classTable.getall();
+
+    ctx.body = rlt;
+}

@@ -8,6 +8,7 @@
 const Router = require('koa-router')({prefix: '/sever'});
 const objclass = require('./sever/objclass');
 const objtag = require('./sever/objtag');
+const objc = require('./sever/objcreat');
 
 
 module.exports = Router
@@ -15,3 +16,4 @@ module.exports = Router
     .get('/class/list', objclass.listClass)
     .post('/tag/add', objtag.addTag)
     .get('/tag/list', objtag.listTag)
+    .post('/obj/add', objc.add)

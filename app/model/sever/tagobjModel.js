@@ -11,7 +11,7 @@ const tagobj = db.define('tagobj', {
 });
 
 //没有主键，删除默认主键
-iosview.removeAttribute('id');
+tagobj.removeAttribute('id');
 
 exports.getall = async () => await tagobj.findAll();
 

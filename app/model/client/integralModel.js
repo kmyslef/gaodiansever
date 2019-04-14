@@ -18,6 +18,8 @@ exports.getOne = async accountid => await integral.findOne({
     }
 });
 
+exports.update1 = async (accountid, integral1) => await integral.update({integral: integral1}, {where: {accountid: accountid}});
+
 
 exports.insert = async param => await integral.build({
     accountid: param.accountid,

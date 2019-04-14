@@ -2,11 +2,14 @@
 
 const Router = require('koa-router')({prefix: '/api'});
 const login = require('./client/login');
-
+const objrlt = require('./client/objrlt');
+const order = require('./client/order');
 
 module.exports = Router
     //登录
-    .post('/client/login', login.login);
+    .post('/client/login', login.login)
+    .get('/client/objlist', objrlt.listObj)
+    .post('/client/orderadd', order.addOrder)
     //获取组列表
     // .get('/group/list', group.getlist)
     // //添加组信息

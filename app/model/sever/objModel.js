@@ -8,8 +8,8 @@ const objs = db.define('objs', {
     title: {type: Sequelize.STRING(128)},
     des: {type: Sequelize.STRING(128)},
     url: {type: Sequelize.STRING(128)},
-    price: {type: Sequelize.FLOAT(64)},
-    cost: {type: Sequelize.FLOAT(64)}
+    price: {type: Sequelize.FLOAT(5,2)},
+    cost: {type: Sequelize.FLOAT(5,2)}
 }, {
     tableName: 'objs',
     timestamps: false,

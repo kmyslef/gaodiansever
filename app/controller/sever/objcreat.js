@@ -10,11 +10,14 @@ exports.add = async ctx => {
     const param = ctx.request.body;
     const uuid = uuidv1();
 
-    await objsTable.insert({objid: uuid, title: param.title, des: param.des, url: param.url, price: param.price, cost: param.cost});
+    const price = parseFloat(param.price);
+    const cost = parseFloat(param.cost);
+    await objsTable.insert({objid: uuid, title: param.title, des: param.des, url: param.url, price: price, cost: cost});
     try
     {
-        for (let i = 0; i < param.classs; i++){
-            await classobjTable.insert({classifyid: param.classifyid, objid: uuid});
+        for (let i = 0; i < param.classs.length; i++){
+            const clid = param.classs[0];
+            await classobjTable.insert({classifyid: clid, objid: uuid});
         }
     }
     catch(err)
@@ -24,8 +27,9 @@ exports.add = async ctx => {
 
     try
     {
-        for (let i = 0; i < param.tags; i++){
-            await tagobjTable.insert({tagid: param.tagid, objid: uuid});
+        for (let i = 0; i < param.tags.length; i++){
+            const tid = param.tags[0];
+            await tagobjTable.insert({tagid: tid, objid: uuid});
         }
     }
     catch(err)

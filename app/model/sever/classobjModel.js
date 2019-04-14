@@ -11,7 +11,7 @@ const classobj = db.define('classobj', {
 });
 
 //没有主键，删除默认主键
-iosview.removeAttribute('id');
+classobj.removeAttribute('id');
 
 exports.getall = async () => await classobj.findAll();
 

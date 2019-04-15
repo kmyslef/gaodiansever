@@ -16,7 +16,7 @@ exports.add = async ctx => {
     try
     {
         for (let i = 0; i < param.classs.length; i++){
-            const clid = param.classs[0];
+            const clid = param.classs[i];
             await classobjTable.insert({classifyid: clid, objid: uuid});
         }
     }
@@ -28,7 +28,7 @@ exports.add = async ctx => {
     try
     {
         for (let i = 0; i < param.tags.length; i++){
-            const tid = param.tags[0];
+            const tid = param.tags[i];
             await tagobjTable.insert({tagid: tid, objid: uuid});
         }
     }

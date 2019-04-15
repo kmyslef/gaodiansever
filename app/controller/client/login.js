@@ -20,8 +20,9 @@ exports.login = async ctx => {
     const openid = responobj.openid;
 
     const userRlt = await userTable.getuser(openid);
-    let accountid = userRlt.accountid;
+    let accountid = "";
     if (userRlt){
+        accountid = userRlt.accountid
         if (userRlt.nick != body.nick || userRlt.avatarUrl != body.avatarUrl){
             await userTable.update(userRlt.accountid, body.nick, body.avatarUrl);
         }

@@ -23,7 +23,7 @@ let bodyReceiver = new BodyReceiver({
 // global.uploadPath = '/Volumes/other/aout_pack';  //资源文件总路径
 global.appSecret = 'e564ef7587f9fe2c2b0492f6dd41c858';
 global.appId = 'wxa751b9e59bbd2596';
-global.imagesPath = path.join(__dirname, './../images');
+global.imagesPath = path.join(__dirname, './../../images');
 
 
 const app = new Koa();

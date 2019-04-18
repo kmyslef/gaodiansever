@@ -11,18 +11,19 @@ const orders = db.define('orders', {
     adress: {type: Sequelize.STRING(128)},
     deliverytime: {type: Sequelize.STRING(64)},
     ordertime: {type: Sequelize.DATE},
-    accountid: {type: Sequelize.STRING(64)}
+    accountid: {type: Sequelize.STRING(64)},
+    ispay: {type: Sequelize.STRING(2)}
 }, {
     tableName: 'orders',
     timestamps: false,
     updatedAt: false
 });
 
-// exports.update = async (hid, downadr, installadr) => await ipr00history.update({downadr: downadr, installadr: installadr}, {
-//     where: {
-//         hid: hid
-//     }
-// });
+exports.updatepay = async (orderid, val) => await orders.update({ispay: val}, {
+    where: {
+        orderid: orderid
+    }
+});
 
 exports.insert = async param => await orders.build({
     orderid: param.orderid,
@@ -32,5 +33,6 @@ exports.insert = async param => await orders.build({
     adress:param.adress,
     deliverytime:param.deliverytime,
     ordertime:param.ordertime,
-    accountid:param.accountid
+    accountid:param.accountid,
+    ispay:param.ispay
 }).save();

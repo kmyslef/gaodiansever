@@ -36,7 +36,7 @@ exports.addOrder = async ctx => {
         }
 
         const curtime = new Date();
-        await orderTable.insert({orderid: uid, totleprice: body.totleprice, integral: body.integral, actual: body.actual, adress:body.adress, deliverytime:body.deliverytime, ordertime:curtime, accountid:accountId});
+        await orderTable.insert({orderid: uid, totleprice: body.totleprice, integral: body.integral, actual: body.actual, adress:body.adress, deliverytime:body.deliverytime, ordertime:curtime, accountid:accountId, ispay:"0"});
 
     }
 
